@@ -1,0 +1,26 @@
+{
+  "extension_description": {
+    "message": "Add Wikipedia suggestions and search results to Omnibox. Just type 'wiki' and hit TAB or spacebar."
+  },  
+  "options_title": {
+    "message": "OmniWiki options"
+  },
+  "fieldset_omnibox_legend": {
+    "message": "Omnibox suggestions"
+  },
+  "language": {
+    "message": "Language"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "saved": {
+    "message": "Saved"
+  },
+  "search_label": {
+    "message": "Search"
+  },
+  "restore_defaults": {
+    "message": "Restore defaults"
+  }  
+}

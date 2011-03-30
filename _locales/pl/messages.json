@@ -1,0 +1,26 @@
+{
+  "extension_description": {
+    "message": "Rozszerzenie dodaje do paska Omnibox podpowiedzi z encyklopedii Wikipedia. Wystarczy wpisać 'wiki' i nacisnąć przycisk TAB lub spację."
+  }, 
+  "options_title": {
+    "message": "OmniWiki opcje"
+  },
+  "fieldset_omnibox_legend": {
+    "message": "Podpowiedzi Omnibox"
+  },
+  "language": {
+    "message": "Język"
+  },
+  "save": {
+    "message": "Zapisz"
+  },
+  "saved": {
+    "message": "Zapisano"
+  },
+  "search_label": {
+    "message": "Szukaj"
+  },
+  "restore_defaults": {
+    "message": "Przywróć domyślne"
+  }  
+}
