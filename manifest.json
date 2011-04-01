@@ -1,10 +1,10 @@
 {
   "name": "OmniWiki",
-  "version": "0.1",
+  "version": "0.2",
   "background_page": "background.html",
   "description": "__MSG_extension_description__",
   "omnibox": { "keyword" : "wiki" },
-  "permissions": [ "tabs", "http://*.wikipedia.org/*" ],
+  "permissions": [ "tabs", "http://*.wikipedia.org/*", "http://*.wikimedia.org/*" ],
   "icons": { 
       "16": "img/16.png",
       "48": "img/48.png",

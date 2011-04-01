@@ -1,20 +1,44 @@
 <script>
     var options = {};
     var currentRequest = null;
-   
+
     function updateOptions(lang){
         try {
             options = JSON.parse(localStorage.options);
         }catch(e){
         }
         var defaults = {
-            lang: lang          
+            lang: lang,
+            prefix: true
         };
         for(var key in defaults){
             if(options[key] == undefined){
                 options[key] = defaults[key];
             }
-        }		
+        }
+        if(options.prefix){
+            var req = new XMLHttpRequest();
+            req.open("GET", "http://meta.wikipedia.org/wiki/List_of_Wikipedias", true);
+            req.onload = function(){
+                if(this.status == 200){
+                    try{
+                        //                        console.log(this.responseText);
+                        var s = '<td class="plainlinksneverexpand"><a href="http://pl.wikipedia.org/wiki/J%C4%99zyk_polski" class="external text" rel="nofollow">Polski</a></td>' +
+                            '<td><a href="http://pl.wikipedia.org/wiki/" class="extiw" title="pl:">pl</a></td>';
+                        console.log(s.match(/<td class="plainlinksneverexpand"><a (.+)?>(.+)?<\/a><\/td>\s*<td><a (.+)?>(.+)?<\/a><\/td>/i));
+                        console.log(this.responseText.match(/<td class="plainlinksneverexpand"><a (.+)?>(.+)?<\/a><\/td>\s*<td><a (.+)?>(.+)?<\/a><\/td>/i));
+
+                    }catch(e){
+                        this.onerror();
+                    }
+                }else{
+                    this.onerror();
+                }
+            };
+            req.onerror = function(){
+            };
+            req.send();
+        }
     }
 	
     chrome.i18n.getAcceptLanguages(function(languages) {
@@ -31,7 +55,7 @@
         updateDefaultSuggestion(text);
         
         if(text.length > 0){
-            currentRequest = suggests(text, function(data) {
+            currentRequest = suggests(options.lang, text, function(data) {
                 var results = [];
 
                 for(var i = 0; i < data[1].length; i++){
@@ -73,10 +97,10 @@
     });
     
    
-    function suggests(query, callback) {
+    function suggests(lang, query, callback) {
         var req = new XMLHttpRequest();
       
-        req.open("GET", "http://" + options.lang + ".wikipedia.org/w/api.php?action=opensearch&namespace=0&suggest=&search=" + query, true);
+        req.open("GET", "http://" + lang + ".wikipedia.org/w/api.php?action=opensearch&namespace=0&suggest=&search=" + query, true);
         req.onload = function(){
             if(this.status == 200){
                 try{                  
@@ -115,3 +139,4 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 </script>
+<iframe id="temp"></iframe>
