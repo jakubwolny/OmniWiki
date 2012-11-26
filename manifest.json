@@ -1,16 +1,25 @@
 {
   "name": "OmniWiki",
-  "version": "0.1",
-  "background_page": "background.html",
+  "version": "0.2",
+  "manifest_version": 2,
   "description": "__MSG_extension_description__",
-  "omnibox": { "keyword" : "wiki" },
-  "permissions": [ "tabs", "http://*.wikipedia.org/*" ],
+  "background": {
+    "scripts": ["js/background.js"]
+  },  
+  "omnibox": {
+    "keyword": "wiki"
+  },
+  "permissions": [
+    "tabs",
+    "http://*.wikipedia.org/*"
+  ],
   "icons": { 
       "16": "img/16.png",
       "48": "img/48.png",
       "128": "img/128.png"
   },
-  "minimum_chrome_version": "9",
+  "minimum_chrome_version": "18",
   "options_page": "options.html",
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "default_locale": "en"
 }
