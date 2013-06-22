@@ -92,16 +92,9 @@ function suggests(query, callback) {
     req.send();
 }
 
-function navigate(url) {
-    chrome.tabs.getSelected(null, function(tab) {
-        chrome.tabs.update(tab.id, {url: url});
-    });
-}
-
-chrome.omnibox.onInputEntered.addListener(function(text) {       
-    navigate("http://" + options.lang + ".wikipedia.org/w/index.php?search=" + text);
+chrome.omnibox.onInputEntered.addListener(function(text) {
+    chrome.tabs.update(null, {url: "http://" + options.lang + ".wikipedia.org/w/index.php?search=" + text});
 });
-
 
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-7218577-47']);

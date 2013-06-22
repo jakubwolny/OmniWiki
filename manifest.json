@@ -10,7 +10,6 @@
     "keyword": "wiki"
   },
   "permissions": [
-    "tabs",
     "http://*.wikipedia.org/*"
   ],
   "icons": { 
